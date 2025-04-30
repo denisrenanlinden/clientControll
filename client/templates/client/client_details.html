@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'client/css/style.css' %}">
+    <title>Detalhes do Cliente</title>
+</head>
+<body>
+    <h1>Detalhes do Cliente</h1>
+
+    <table class="details">
+        <tr>
+            <th>Campo</th>
+            <th>Valor</th>
+        </tr>
+        <tr>
+            <td>Nome</td>
+            <td>{{ client.name }}</td>
+        </tr>
+        <tr>
+            <td>Sobrenome</td>
+            <td>{{ client.surname }}</td>
+        </tr>
+        <tr>
+            <td>CPF</td>
+            <td>{{ cpf_formatted }}</td>
+        </tr>
+        <tr>
+            <td>Estado Civil</td>
+            <td>{{ client.get_marital_status_display }}</td>
+        </tr>
+        <tr>
+            <td>Gênero</td>
+            <td>{{ client.get_gender_display }}</td>
+        </tr>
+        <tr>
+            <td>Telefone</td>
+            <td>{{ client.phone }}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{ client.email }}</td>
+        </tr>
+        <tr>
+            <td>Endereço</td>
+            <td>{{ client.addresses.first.street }}, {{ client.addresses.first.number }}</td>
+        </tr>
+        <tr>
+            <td>Cidade</td>
+            <td>{{ client.addresses.first.city }} - {{ client.addresses.first.state }}</td>
+        </tr>
+        <tr>
+            <td>Data de Cadastro</td>
+            <td>{{ client.createdAt }}</td>
+        </tr>
+    </table>
+
+    <a href="{% url 'index' %}">Voltar para lista</a>
+</body>
+</html>
