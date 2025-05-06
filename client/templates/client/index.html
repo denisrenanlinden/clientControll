@@ -21,7 +21,7 @@
         <tr>
             <td><a href="{% url 'client_details' client.id %}">{{ client.name }}</a></td>
             <td>{{ client.surname }}</td>
-            <td>{{ client.addresses.first.street }}</td>
+            <td>{{ client.addresses.first.city }}</td>
             <td>{{ client.createdAt}}</td>
         </tr>
         {% endfor %}
